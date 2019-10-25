@@ -1,0 +1,43 @@
+digraph cfg {
+ subgraph cluster_sum {
+ graph [label="sum"];
+ s1[label="i = 0;"];
+ s1 -> s2;
+ s2[label="sum_0 = 0;"];
+ s2 -> s3;
+ s3[label="i = x;"];
+ s3 -> s4;
+ s4[label="<loop>"];
+ s4 -> s6;
+ s6[label="if i <= y"];
+ s6 -> s8;
+ s6 -> s7;
+ s7[label="<break>"];
+ s7 -> s11;
+ s8[label="<enter block>"];
+ s8 -> s9;
+ s9[label="sum_0 -= i;"];
+ s9 -> s10;
+ s10[label="i ++;"];
+ s10 -> s4;
+ s11[label="<return>"];
+ }
+ subgraph cluster_main {
+ graph [label="main"];
+Program Dependence Flowchart Generator and Plagiarism Detection
+Dept. of IS&E,NIE Mysore Page 31
+ s13[label="res = 0;"];
+ s13 -> s14;
+ s14[label="a = 2;"];
+ s14 -> s15;
+ s15[label="b = 5;"];
+ s15 -> s16;
+ s16[label="res = sum(a,b);"];
+ s16 -> s17;
+ s17[label="printf(\"%d\",res);"];
+ s17 -> s18;
+ s18[label="__retres = 0;"];
+ s18 -> s21;
+ s21[label="<return>"];
+ }
+ }
