@@ -24,8 +24,6 @@ digraph cfg {
  }
  subgraph cluster_main {
  graph [label="main"];
-Program Dependence Flowchart Generator and Plagiarism Detection
-Dept. of IS&E,NIE Mysore Page 31
  s13[label="res = 0;"];
  s13 -> s14;
  s14[label="a = 2;"];
